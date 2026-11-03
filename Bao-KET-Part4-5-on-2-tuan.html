@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ôn 2 tuần · KET Reading Part 4 & 5 · Bảo</title>
+<style>
+:root{
+  --bg:#f6f4ef; --card:#ffffff; --ink:#1f2328; --muted:#5d6570; --line:#e3ded3;
+  --accent:#1d5c63; --accent-soft:#e3efef; --ok:#1f7a3f; --ok-soft:#e5f3e9;
+  --bad:#b3261e; --bad-soft:#fbe9e7; --warn:#8a5a00; --chip:#f1ede4; --memo:#fff8e1;
+}
+@media (prefers-color-scheme: dark){
+  :root{ --bg:#16181b; --card:#1f2226; --ink:#e8e6e1; --muted:#a3a9b1; --line:#30343a;
+    --accent:#6fb7bf; --accent-soft:#1f3436; --ok:#6cc58b; --ok-soft:#1c3324;
+    --bad:#ef8a80; --bad-soft:#3a2120; --warn:#e0b25a; --chip:#2a2e33; --memo:#2b2716; }
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}
+.wrap{max-width:820px;margin:0 auto;padding:16px 16px 110px}
+header.top,section.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin:8px 0 18px}
+.kicker{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);font-weight:700}
+h1{font-size:22px;margin:4px 0 2px;line-height:1.25}
+h2{font-size:18px;margin:0 0 4px}
+h3{font-size:16px;margin:0 0 6px}
+.sub{color:var(--muted);font-size:14px}
+.meta{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;margin-top:14px}
+.meta input{font:inherit;padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);min-width:0;flex:1 1 220px}
+.timer{font-variant-numeric:tabular-nums;font-weight:600;color:var(--accent);background:var(--accent-soft);padding:6px 10px;border-radius:8px;font-size:14px}
+.timer.late{color:var(--bad);background:var(--bad-soft)}
+.menu{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:12px}
+@media (max-width:560px){.menu{grid-template-columns:1fr}}
+.opt{display:flex;gap:10px;align-items:flex-start;border:1px solid var(--line);border-radius:10px;padding:9px 12px;cursor:pointer;background:var(--card);text-align:left;font:inherit;color:inherit}
+.opt b{color:var(--accent);min-width:1.1em}
+.opt:hover{border-color:var(--accent)}
+.opt.sel{border-color:var(--accent);background:var(--accent-soft)}
+.opt.right{border-color:var(--ok);background:var(--ok-soft)}
+.opt.wrong{border-color:var(--bad);background:var(--bad-soft)}
+.menu .opt{justify-content:space-between;align-items:center}
+.menu .opt .nm{display:flex;gap:8px}
+.menu .opt .st{font-size:13px;font-weight:700;color:var(--muted);white-space:nowrap}
+.menu .opt.done .st{color:var(--ok)}
+.menu .opt.cur{border-color:var(--accent);box-shadow:0 0 0 2px var(--accent) inset}
+.tips{margin:12px 0 0;padding-left:18px;font-size:14px;color:var(--muted)}
+.tips li{margin:3px 0}
+.tips b{color:var(--ink)}
+.memo{background:var(--memo);border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin:10px 0 4px}
+.memo table{width:100%;border-collapse:collapse;font-size:14px}
+.memo td{padding:6px 6px;border-top:1px solid var(--line);vertical-align:top}
+.memo tr:first-child td{border-top:0}
+.memo td:first-child{font-weight:700;width:48%;white-space:pre-line}
+.memo td:last-child{font-style:italic;white-space:pre-line}
+.goal{font-size:14px;color:var(--muted);margin:2px 0 6px}
+.sec{border-top:1px solid var(--line);margin-top:16px;padding-top:12px}
+.sec .sum{float:right;font-size:13px;font-weight:800;color:#fff;background:var(--ok);border-radius:999px;padding:2px 10px}
+.sec .sum:empty{display:none}
+.instr{color:var(--muted);font-size:14px;margin:0 0 8px}
+.q{padding:12px 0;border-top:1px dashed var(--line)}
+.q:first-of-type{border-top:0}
+.qn{font-weight:700;color:var(--accent);margin-right:6px}
+.src{font-size:12px;font-weight:700;color:var(--muted);background:var(--chip);border-radius:6px;padding:1px 7px;margin-right:6px}
+.opts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:8px}
+@media (max-width:560px){.opts{grid-template-columns:1fr}}
+.blank{display:inline-block;min-width:3em;border-bottom:2px solid var(--accent);color:var(--accent);font-weight:700;text-align:center;padding:0 4px}
+input.gapin{font:inherit;font-weight:700;color:var(--accent);width:8.5em;max-width:60vw;padding:2px 8px;margin:0 3px;border:2px dashed var(--line);border-radius:8px;background:var(--bg);text-align:center}
+input.gapin:focus{outline:none;border-color:var(--accent);border-style:solid}
+input.gapin.right{border:2px solid var(--ok);background:var(--ok-soft);color:var(--ok)}
+input.gapin.wrong{border:2px solid var(--bad);background:var(--bad-soft);color:var(--bad)}
+.was{font-size:13px;color:var(--muted);margin-top:4px}
+.was s{color:var(--bad)}
+.fb{display:none;margin-top:8px;padding:9px 12px;border-radius:10px;font-size:14px;background:var(--bg);border:1px solid var(--line)}
+.done .fb{display:block}
+.verdict{font-weight:700}
+.verdict.ok{color:var(--ok)} .verdict.no{color:var(--bad)}
+.passage{background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin:6px 0 10px;line-height:2.1}
+.passage .gn{font-weight:800;color:var(--accent)}
+.pgrid{display:grid;grid-template-columns:2.2em repeat(3,minmax(0,1fr));gap:6px 8px;align-items:center}
+@media (max-width:560px){.pgrid{grid-template-columns:2em 1fr}.pgrid .opt{grid-column:2}}
+.pgrid .n{font-weight:800;color:var(--accent);text-align:center}
+.lfoot{display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap;border-top:1px solid var(--line);margin-top:14px;padding-top:14px}
+.lnote{font-size:14px;color:var(--muted);flex:1 1 220px}
+.lnote .warn{color:var(--warn)}
+.btn{font:inherit;font-weight:700;border:0;border-radius:10px;padding:10px 18px;background:var(--accent);color:#fff;cursor:pointer}
+.btn.ghost{background:transparent;color:var(--accent);border:1px solid var(--accent)}
+.score{font-size:28px;font-weight:800;color:var(--accent);line-height:1.1}
+.score small{font-size:15px;color:var(--muted);font-weight:600}
+.result{display:none;background:var(--accent-soft);border-radius:12px;padding:12px 14px;margin-top:12px}
+.result.show{display:block}
+.bar{position:fixed;left:0;right:0;bottom:0;background:var(--card);border-top:1px solid var(--line);padding:10px 16px}
+.bar .in{max-width:820px;margin:0 auto;display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.progress{font-size:14px;color:var(--muted)}
+footer{color:var(--muted);font-size:12px;text-align:center;margin-top:20px}
+.hidden{display:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="kicker">KET · A2 Key for Schools · Reading</div>
+    <h1>Ôn 2 tuần · Part 4 &amp; Part 5</h1>
+    <div class="sub">10 bài · mỗi buổi 1 bài, khoảng 25 phút · làm xong bấm <b>Chấm bài</b> để xem đáp án và giải thích</div>
+    <div class="meta">
+      <input id="name" placeholder="Họ và tên học viên" aria-label="Họ và tên">
+      <span class="timer" id="timer">00:00</span>
+    </div>
+    <ul class="tips">
+      <li><b>Part 4:</b> che đáp án, đọc cả câu → nhìn từ <b>NGAY SAU</b> chỗ trống (to + V? V-ing? người? giới từ?) → loại đáp án không đi được.</li>
+      <li><b>Part 5:</b> chỗ trống ở <b>đầu câu</b> → nhìn dấu câu cuối câu: dấu phẩy + lời khuyên/mệnh lệnh → <b>If</b>; có dấu <b>?</b> → Do / Can / What…</li>
+      <li><b>Không bao giờ bỏ trống.</b> Điền xong, đọc lại cả câu.</li>
+    </ul>
+  </header>
+
+  <section class="card" id="home">
+    <div class="kicker">Chọn bài</div>
+    <div class="menu" id="menu"></div>
+  </section>
+
+  <div id="lesson"></div>
+  <footer>Ms. Thủy Tiên 0388929741</footer>
+</div>
+<div class="bar"><div class="in">
+  <span class="progress" id="progress"></span>
+  <span>
+    <button class="btn ghost hidden" id="back">← Danh sách bài</button>
+  </span>
+</div></div>
+
+<script>
+const DATA = {"lessons":[{"title":"BÀI 1 – Động từ + to V / V-ing / tân ngữ","goal":"Nhìn từ NGAY SAU chỗ trống (to + V? V-ing? tân ngữ?) để loại đáp án. Đây là nhóm lỗi lớn nhất của con.","remember":[["decide / want / need / forget / hope / would like + to V","He decided to start a business. · Is there anything I need to bring?"],["stop / enjoy / finish + V-ing\nspend + thời gian + V-ing","She stopped working in 1987. · He spent his free time chatting."],["allow / invite / ask sb + to V\nbe allowed to V","Visitors are not allowed to swim there."],["offer sb sth  (offer sb a job / money)","The company offered him $1 million."],["BẪY: think / suppose / believe / understand","KHÔNG dùng với nghĩa \"quyết định làm gì\" → không chọn trước \"to V\"."]],"mcq":[{"q":"Last summer, my parents ___ to buy a bigger car.","o":["thought","decided","believed"],"a":1,"w":"decide to + V = quyết định làm gì. think/believe không đi với 'to buy'."},{"q":"Tom ___ playing football when he hurt his leg.","o":["stopped","closed","ended"],"a":0,"w":"stop + V-ing = ngừng làm gì. close/end không đi với V-ing theo nghĩa này."},{"q":"Students are not ___ to use their phones in class.","o":["agreed","liked","allowed"],"a":2,"w":"be allowed to + V = được phép làm gì."},{"q":"My uncle ___ me a job in his shop for the holidays.","o":["offered","took","brought"],"a":0,"w":"offer sb a job = mời ai làm việc."},{"q":"I ___ most of the weekend reading comics.","o":["took","spent","used"],"a":1,"w":"spend + thời gian + V-ing (người làm chủ ngữ)."},{"q":"My teacher ___ the class to visit her garden.","o":["invited","showed","looked"],"a":0,"w":"invite sb to + V = mời ai làm gì."},{"q":"Do you ___ to come to the cinema with us tonight?","o":["enjoy","want","mind"],"a":1,"w":"want to + V. enjoy/mind đi với V-ing."},{"q":"Don't ___ to bring your swimming things tomorrow!","o":["forget","lose","miss"],"a":0,"w":"forget to + V = quên làm gì."}],"fill":[{"q":"Would you like ___ come to my party?","a":"to","w":"would like + to V."},{"q":"My mum doesn't allow me ___ stay up late.","a":"to","w":"allow sb + to V."},{"q":"I forgot ___ tell you – the match starts at 3.","a":"to","w":"forget + to V."},{"q":"Is there anything I need ___ bring?","a":"to","w":"need + to V (lỗi cũ của con: viết 'you')."},{"q":"She offered ___ help me with my homework.","a":"to","w":"offer + to V = đề nghị làm gì."},{"q":"We stopped at a café ___ have lunch.","a":"to","w":"to + V chỉ mục đích (để làm gì)."}],"own":[{"src":"Q1-Đề 2 · P5 câu 30","q":"Is there anything I need ___ bring with me?","wrong":"you","right":"to"},{"src":"Q1-Đề 2 · P4 câu 22","q":"When Sally ___ working as an astronaut…","wrong":"closed","right":"stopped"},{"src":"Q3-Đề 4 · P4 câu 21","q":"visitors are not ___ to swim there.","wrong":"agreed","right":"allowed"},{"src":"Q3-Đề 4 · P4 câu 22","q":"if you ___ to walk there…","wrong":"suppose","right":"decide"},{"src":"Q1-Đề 1 · P4 câu 23","q":"another company ___ him $1 million for his idea.","wrong":"took","right":"offered"}]},{"title":"BÀI 2 – take / spend · win · share / send","goal":"Chủ ngữ là IT → take. Chủ ngữ là NGƯỜI → spend. Con đã sai cặp này 2 lần ở 2 đề khác nhau.","remember":[["It takes (sb) + thời gian + to V","It takes me 20 minutes to walk to school."],["Người + spend + thời gian / tiền + V-ing / on sth","I spend 20 minutes walking to school. · She spends a lot on clothes."],["win a competition / a prize / a match\ntake part in a competition","He won a national competition. · 200 students took part in the race."],["share photos online (đăng cho mọi người xem)\nsend sb a message (gửi cho 1 người)","He shares photographs of them online."]],"mcq":[{"q":"It ___ me an hour to do my homework yesterday.","o":["spent","took","used"],"a":1,"w":"Chủ ngữ 'It' → It took me an hour."},{"q":"My brother ___ all his money on computer games.","o":["spends","takes","pays"],"a":0,"w":"spend money on sth."},{"q":"How long does it ___ to get to the airport?","o":["spend","need","take"],"a":2,"w":"How long does it take to…?"},{"q":"Our team ___ the school football competition last year.","o":["won","took","got"],"a":0,"w":"win a competition."},{"q":"More than 200 students ___ part in the race.","o":["had","made","took"],"a":2,"w":"take part in = tham gia."},{"q":"She ___ her holiday photos on the class website.","o":["shared","joined","sent"],"a":0,"w":"share photos online/on a website."},{"q":"Can you ___ me a message when you arrive?","o":["share","send","speak"],"a":1,"w":"send sb a message."},{"q":"They ___ three days walking across the mountains.","o":["took","spent","passed"],"a":1,"w":"Chủ ngữ người + spend + thời gian + V-ing."}],"fill":[{"q":"___ takes about two hours to get there by train.","a":"It","w":"It takes + thời gian + to V."},{"q":"How much time do you spend ___ your phone every day?","a":"on","w":"spend time on sth."},{"q":"It took them ___ long time to finish the puzzle.","a":"a","w":"a long time."},{"q":"I spent the afternoon ___ the park with my friends.","a":"in / at","w":"in/at the park."},{"q":"Who won ___ prize for the best picture?","a":"the","w":"the prize for the best… (giải xác định)."},{"q":"Lots of people took ___ in the competition.","a":"part","w":"take part in."}],"own":[{"src":"Q1-Đề 3 · P4 câu 23","q":"It ___ him about 30 minutes to make each shoe.","wrong":"spends","right":"takes"},{"src":"Q3-Đề 4 · P4 câu 23","q":"it will ___ you two days.","wrong":"spend","right":"take"},{"src":"Q1-Đề 3 · P4 câu 24","q":"he ___ photographs of them online.","wrong":"sends","right":"shares"}]},{"title":"BÀI 3 – say / tell / speak / talk","goal":"Bốn động từ cùng nghĩa \"nói\" nhưng đi với những từ khác nhau. Nhìn xem sau chỗ trống là NGƯỜI, NGÔN NGỮ hay giới từ.","remember":[["tell + NGƯỜI + sth · tell a story / a lie / the truth · tell sb about sth","Let me tell you some things about myself."],["say + điều gì (say hello, say that…) · say sth TO sb","She said \"Good morning\" to everyone."],["speak + ngôn ngữ · speak to sb","Can you speak Spanish? · Can I speak to Mr Brown?"],["talk to / with sb ABOUT sth","My mum wants to talk to her about the plans."]],"mcq":[{"q":"Grandpa often ___ us stories about his childhood.","o":["says","tells","speaks"],"a":1,"w":"tell sb a story."},{"q":"Can you ___ Spanish?","o":["speak","say","tell"],"a":0,"w":"speak + ngôn ngữ."},{"q":"I need to ___ to my teacher about my project.","o":["talk","say","tell"],"a":0,"w":"talk to sb about sth."},{"q":"She ___ \"Good morning\" to everyone in the class.","o":["told","spoke","said"],"a":2,"w":"say sth to sb."},{"q":"Please ___ me the way to the station.","o":["say","tell","speak"],"a":1,"w":"tell + người + sth."},{"q":"We ___ about our holiday plans for hours.","o":["talked","said","told"],"a":0,"w":"talk about sth."},{"q":"Mum ___ that dinner was ready.","o":["spoke","told","said"],"a":2,"w":"say that… (không có người ngay sau)."},{"q":"He never ___ lies.","o":["says","tells","talks"],"a":1,"w":"tell a lie."}],"fill":[{"q":"Let me tell ___ about my family.","a":"you","w":"tell + NGƯỜI (lỗi cũ: con viết 'to')."},{"q":"My mum wants to talk to your mum ___ the plans.","a":"about","w":"talk to sb about sth."},{"q":"Can I speak ___ Mr Brown, please?","a":"to","w":"speak to sb."},{"q":"What did the teacher say ___ you?","a":"to","w":"say sth to sb."},{"q":"Could you tell me ___ time the film starts?","a":"what","w":"what time = mấy giờ."},{"q":"He told ___ funny story at lunch.","a":"a","w":"a + danh từ đếm được số ít."}],"own":[{"src":"Q3-Đề 1 · P4 câu 21","q":"He loved hearing the stories they ___ about their lives.","wrong":"said","right":"told"},{"src":"Q3-Đề 3 · P5 câu 26","q":"Let me tell ___ some things about myself.","wrong":"to","right":"you"},{"src":"Q3-Đề 4 · P5 câu 30","q":"My mum wants to talk to her ___ the plans.","wrong":"to","right":"about"}]},{"title":"BÀI 4 – become / start / open · move / leave / get / return / travel","goal":"Động từ chỉ \"bắt đầu – trở thành\" và \"đi – đến – chuyển\". Hỏi: sau chỗ trống là nghề nghiệp? nơi chốn? có 'to' không?","remember":[["become + nghề / tính từ","She wants to become a vet."],["start / begin + a course / school / V-ing · start a business","When he was 20, he started his own business."],["open + a shop / restaurant / post office","Vanuatu decided to open an unusual post office."],["move to + nơi (chuyển nhà) · leave + nơi (rời đi, KHÔNG có to)\nget to / arrive at, in (đến nơi) · return to (trở về)","The family moved to Hannibal. · He left Thailand."],["travel + quãng đường / travel to · change to + màu/thứ khác","They travel many kilometres a day. · Their eyes change to yellow."]],"mcq":[{"q":"When she grows up, she wants to ___ a vet.","o":["start","become","begin"],"a":1,"w":"become + nghề nghiệp."},{"q":"My uncle ___ his own restaurant last year.","o":["opened","became","turned"],"a":0,"w":"open a restaurant."},{"q":"We ___ to a new flat near the beach in 2020.","o":["left","moved","got"],"a":1,"w":"move to = chuyển đến sống."},{"q":"The traffic lights ___ to green, so we crossed the road.","o":["became","changed","made"],"a":1,"w":"change to + màu. become không đi với 'to'."},{"q":"The train ___ London at 9 o'clock.","o":["left","moved","arrived"],"a":0,"w":"leave + nơi (không cần giới từ). arrive cần in/at."},{"q":"What time did you ___ to school this morning?","o":["arrive","get","reach"],"a":1,"w":"get to = đến. arrive at / reach (không có to)."},{"q":"The astronauts ___ to Earth after six days in space.","o":["returned","arrived","finished"],"a":0,"w":"return to = trở về."},{"q":"Camels can ___ many kilometres without water.","o":["travel","pass","make"],"a":0,"w":"travel + quãng đường."}],"fill":[{"q":"My family moved ___ Hanoi when I was five.","a":"to","w":"move to + nơi."},{"q":"We arrived ___ the airport at midnight.","a":"at","w":"arrive at + địa điểm nhỏ."},{"q":"She wants to become ___ famous singer.","a":"a","w":"a + danh từ số ít."},{"q":"My dad started his ___ business at 25.","a":"own","w":"his own business = công ty riêng."},{"q":"Mum will take me ___ the zoo on Sunday.","a":"to","w":"take sb to somewhere (lỗi cũ: con bỏ trống)."},{"q":"I'm going to leave ___ house at 7 tomorrow.","a":"the / my","w":"leave + nơi, không có giới từ."}],"own":[{"src":"Q1-Đề 1 · P4 câu 21","q":"When he was 20, Farnsworth ___ his own business.","wrong":"turned","right":"started"},{"src":"Q3-Đề 1 · P4 câu 22","q":"what he really wanted to do was to ___ a river boat captain.","wrong":"begin","right":"become"},{"src":"Q3-Đề 1 · P4 câu 19","q":"the family ___ to Hannibal, a town on the Mississippi.","wrong":"got","right":"moved"},{"src":"Q3-Đề 2 · P4 câu 23","q":"these ___ to a yellow-gold colour","wrong":"become","right":"change"},{"src":"Q3-Đề 2 · P4 câu 22","q":"…and ___ many kilometres a day to find food.","wrong":"pass","right":"travel"},{"src":"Q3-Đề 4 · P5 câu 25","q":"my mum has offered to take me ___ the new fashion museum.","wrong":"(bỏ trống)","right":"to"}]},{"title":"BÀI 5 – Danh từ đi theo cụm cố định","goal":"Part 4 hay hỏi danh từ trong cụm cố định. Học thuộc cả CỤM, không học từ lẻ.","remember":[["a way of V-ing / a way to V / a great way for sb to V","a way of sending pictures · a great way for tourists to see…"],["a large number of + danh từ số nhiều","quite a large number of white wolves"],["these days (ngày nay) · at the age of 11 · at the top / at the bottom","He is not very famous these days."],["for this reason · in fact · as soon as possible","For this reason you can't wash anything in the lake."],["a big fan of · a summer job (job đếm được, work không đếm được)\nwin a competition · play a game · watch a match","He is a big fan of basketball."],["the area (khu vực) – part OF / piece OF cần 'of' phía sau","The area still has quite a large number of wolves."]],"mcq":[{"q":"Cycling is a cheap ___ of getting around the city.","o":["way","plan","thing"],"a":0,"w":"a way of + V-ing."},{"q":"A large ___ of tourists visit the island every summer.","o":["number","amount","count"],"a":0,"w":"a large number of + danh từ đếm được số nhiều."},{"q":"Not many people read newspapers these ___.","o":["years","times","days"],"a":2,"w":"these days = ngày nay."},{"q":"She started playing the piano at the ___ of six.","o":["year","age","time"],"a":1,"w":"at the age of + số tuổi."},{"q":"My bedroom is at the ___ of the house.","o":["top","high","up"],"a":0,"w":"at the top of."},{"q":"It was raining. For this ___, we stayed at home.","o":["fact","answer","reason"],"a":2,"w":"for this reason = vì lý do này."},{"q":"The ___ around the lake is very quiet.","o":["area","part","piece"],"a":0,"w":"area = khu vực. part/piece cần 'of'."},{"q":"My brother is a big ___ of Real Madrid.","o":["fan","member","partner"],"a":0,"w":"a big fan of."},{"q":"She got a summer ___ in a café.","o":["job","work","career"],"a":0,"w":"a job (đếm được)."}],"fill":[{"q":"Please reply as soon ___ possible.","a":"as","w":"as soon as possible (lỗi cũ: con bỏ trống)."},{"q":"___ fact, I've never been on a plane.","a":"In","w":"In fact = thật ra."},{"q":"He learned to swim at ___ age of four.","a":"the","w":"at the age of."},{"q":"There are a large number ___ birds on the lake.","a":"of","w":"a large number of."},{"q":"My little sister is a big fan ___ cartoons.","a":"of","w":"a fan of."},{"q":"Kids ___ days spend a lot of time online.","a":"these","w":"these days."}],"own":[{"src":"Q1-Đề 1 · P4 câu 22","q":"a ___ of sending pictures using electricity","wrong":"plan","right":"way"},{"src":"Q1-Đề 1 · P4 câu 24","q":"He is not very famous these ___.","wrong":"years","right":"days"},{"src":"Q3-Đề 2 · P4 câu 20","q":"the ___ still has quite a large number of white wolves","wrong":"part","right":"area"},{"src":"Q3-Đề 2 · P4 câu 21","q":"quite a ___ number of white wolves","wrong":"full","right":"large"},{"src":"Q1-Đề 2 · P5 câu 27","q":"Let me know as soon ___ possible.","wrong":"(bỏ trống)","right":"as"}]},{"title":"BÀI 6 – Tính từ & từ nối dễ nhầm","goal":"Phân biệt các tính từ đo kích thước, possible/able, và từ nối However / Instead / Especially.","remember":[["tall (người, cây, toà nhà: 25 metres tall) · long (chiều dài)\nhigh (núi, tường) · large/big (kích thước chung)","Cola trees can be 25 metres tall."],["It is possible to V · Người + be able to V · available = có sẵn","It is possible to fly over the lake."],["anywhere in the world (nhấn mạnh sau so sánh nhất)\neverywhere = khắp nơi · somewhere = ở đâu đó","the clearest lake anywhere in the world"],["However = tuy nhiên (ý trái ngược) · Instead = thay vào đó\nespecially = đặc biệt là","He didn't complete it. Instead, he went to work…"],["be called + tên · be known AS · be described AS","The white wolf is also called the Arctic wolf."]],"mcq":[{"q":"That building is 300 metres ___.","o":["tall","long","large"],"a":0,"w":"Chiều cao toà nhà → tall."},{"q":"The river is 500 kilometres ___.","o":["tall","long","high"],"a":1,"w":"Chiều dài sông → long."},{"q":"It is ___ to see dolphins from the beach.","o":["able","possible","available"],"a":1,"w":"It is possible to V."},{"q":"Tickets are ___ online from Monday.","o":["possible","able","available"],"a":2,"w":"available = có sẵn để mua."},{"q":"I didn't go to the party. ___, I stayed at home and watched TV.","o":["Instead","However","Especially"],"a":0,"w":"Instead = thay vào đó."},{"q":"I love all sports, ___ swimming.","o":["especially","exactly","clearly"],"a":0,"w":"especially = đặc biệt là."},{"q":"The film was very long. ___, it was really exciting.","o":["Instead","However","Especially"],"a":1,"w":"However = tuy nhiên (dài NHƯNG hay)."},{"q":"This is the best pizza ___ in the world!","o":["everywhere","somewhere","anywhere"],"a":2,"w":"so sánh nhất + anywhere in the world."},{"q":"Our dog is ___ Max.","o":["called","known","described"],"a":0,"w":"be called + tên."}],"fill":[{"q":"My sister is ___ to speak three languages.","a":"able","w":"be able to V (chủ ngữ người)."},{"q":"Everest is the highest mountain ___ the world.","a":"in","w":"in the world."},{"q":"This cake is better ___ the one we made last week.","a":"than","w":"so sánh hơn + than."},{"q":"She is the ___ famous singer in our country.","a":"most","w":"the most + tính từ dài."},{"q":"Hue is not as big ___ Ho Chi Minh City.","a":"as","w":"not as … as."},{"q":"Lions are also known ___ \"the king of the jungle\".","a":"as","w":"be known as."}],"own":[{"src":"Q2-Đề 1 · P4 câu 22","q":"Cola trees can be 25 metres ___.","wrong":"large","right":"tall"},{"src":"Q3-Đề 4 · P4 câu 19","q":"it may be the clearest lake ___ in the world.","wrong":"everywhere","right":"anywhere"},{"src":"Q2-Đề 1 · P4 câu 21","q":"They ___ hot places that get a lot of rain.","wrong":"think","right":"prefer"},{"src":"Q1-Đề 2 · P4 câu 24","q":"science books for children about ___ space.","wrong":"travelling","right":"exploring"}]},{"title":"BÀI 7 – Part 5: Chỗ trống ĐẦU CÂU (If / Do / Can / What…)","goal":"Con sai câu 30 ở 5/8 đề, và có 3 lần điền \"Do\" khi đáp án là If/Can. Quy tắc: NHÌN DẤU CÂU CUỐI CÂU trước khi điền.","remember":[["Câu có DẤU PHẨY + vế sau là lời khuyên / mệnh lệnh\n(…, you should… / …, please write… / …, write to me)","→ IF (hoặc When).  If you want to improve, you should try this game."],["Câu kết thúc bằng ? + động từ thường, trả lời Yes/No","→ Do / Does / Did.  Do you have any news?"],["Câu ? là NHỜ VẢ / XIN (give me, lend me, help me, open…)","→ Can / Could / Will / Would.  Can you give me her number?"],["Câu ? hỏi THÔNG TIN (thiếu cái gì, ở đâu, khi nào…)","→ What / Where / When / Who / How.  What do you enjoy doing?"],["BẪY: sau chỗ trống đã có 'd / 'll / can / be","→ không thể thêm Do.  If you'd like to make friends, please write back."]],"mcq":[{"q":"___ you want to come, tell me today.","o":["Do","If","What"],"a":1,"w":"Có dấu phẩy + mệnh lệnh 'tell me' → If."},{"q":"___ you want to come with us?","o":["Do","If","What"],"a":0,"w":"Câu hỏi Yes/No, động từ thường → Do."},{"q":"___ time does the film start?","o":["When","What","How"],"a":1,"w":"What time = mấy giờ."},{"q":"___ much is this T-shirt?","o":["How","What","Which"],"a":0,"w":"How much = giá bao nhiêu."},{"q":"___ you open the window, please?","o":["Do","Could","Are"],"a":1,"w":"Nhờ vả → Could/Can."},{"q":"___ you tired?","o":["Do","Are","Have"],"a":1,"w":"tired là tính từ → Are."},{"q":"___ you need help, ask the teacher.","o":["Do","If","Can"],"a":1,"w":"Dấu phẩy + mệnh lệnh → If."},{"q":"___ old is your brother?","o":["What","How","When"],"a":1,"w":"How old = bao nhiêu tuổi."}],"fill":[{"q":"___ you like animals, you will love this film.","a":"If","w":"Dấu phẩy + vế kết quả → If."},{"q":"___ you come to my party on Saturday?","a":"Can / Will / Could / Would","w":"Lời mời/nhờ."},{"q":"___ do you usually do at the weekend?","a":"What","w":"Đã có 'do' → thiếu từ để hỏi."},{"q":"___ you have any brothers or sisters?","a":"Do","w":"Yes/No, động từ thường 'have'."},{"q":"___ you lend me your dictionary, please?","a":"Can / Could / Will / Would","w":"Nhờ vả."},{"q":"___ you're free tomorrow, let's go swimming.","a":"If","w":"Đã có 're → không thể thêm Do/Are."},{"q":"___ you enjoy the concert last night?","a":"Did","w":"last night → quá khứ."},{"q":"___ you get to the station, call me.","a":"When / If","w":"Dấu phẩy + mệnh lệnh."},{"q":"___ is your favourite subject?","a":"What","w":"Hỏi thông tin."},{"q":"___ you'd like to join our club, please write to me.","a":"If","w":"'d like + dấu phẩy + please → If."}],"own":[{"src":"Q3-Đề 1 · P5 câu 30","q":"___ you want to improve too, you should try this game.","wrong":"Do","right":"If"},{"src":"Q3-Đề 3 · P5 câu 30","q":"___ you'd like to make friends with me, please write back soon.","wrong":"Do","right":"If"},{"src":"Q3-Đề 4 · P5 câu 29","q":"___ you give me your mum's phone number?","wrong":"Do","right":"Can / Could / Will / Would"},{"src":"Q3-Đề 2 · P5 câu 30","q":"___ do you enjoy doing in your free time?","wrong":"When","right":"What"}]},{"title":"BÀI 8 – Part 5: Mạo từ (a / the) & đại từ (it / there)","goal":"Mạo từ là chỗ dễ lấy điểm. Con đã đúng 'the' sau so sánh nhất ở các đề gần đây – giữ vững và mở rộng sang 'the top', 'the same', 'it'.","remember":[["the + so sánh nhất · one of the + so sánh nhất","the best place · one of the most beautiful places"],["the same · the top / the bottom · the capital · the first","at the top · the same school"],["a / an + danh từ đếm được số ít (a great idea, a long time, an hour)","That's a great idea."],["It: thời tiết · thay cho vật vừa nhắc · It takes… · It is possible…","It rained. · I really like it."],["There is / There are = có cái gì","There are two reasons why I like it."]],"mcq":[{"q":"___ was very windy yesterday.","o":["It","There","That"],"a":0,"w":"Thời tiết → It."},{"q":"___ is a supermarket at the end of the road.","o":["It","There","They"],"a":1,"w":"Có cái gì → There is."},{"q":"She is ___ best student in the class.","o":["a","the","an"],"a":1,"w":"the + so sánh nhất."},{"q":"I waited for ___ hour.","o":["a","an","the"],"a":1,"w":"an + âm nguyên âm (hour /aʊə/)."},{"q":"Do you like my new shoes? I bought ___ yesterday.","o":["it","them","they"],"a":1,"w":"shoes số nhiều → them."},{"q":"My house is bigger ___ yours.","o":["than","that","then"],"a":0,"w":"so sánh hơn + than."}],"fill":[{"q":"Kim is ___ tallest girl in our class.","a":"the","w":"the + so sánh nhất."},{"q":"That's ___ great idea!","a":"a","w":"a + danh từ số ít."},{"q":"We go to ___ same school.","a":"the","w":"the same."},{"q":"___ snowed a lot last winter.","a":"It","w":"Thời tiết → It."},{"q":"___ are three bedrooms in our new house.","a":"There","w":"There are."},{"q":"I bought a new bike last week. I love ___!","a":"it","w":"it thay cho 'a new bike'."},{"q":"Paris is ___ capital of France.","a":"the","w":"the capital."},{"q":"My room is at ___ top of the house.","a":"the","w":"at the top."},{"q":"This is one of ___ best films I've ever seen.","a":"the","w":"one of the + so sánh nhất."},{"q":"I've got a new phone. ___ is very fast.","a":"It","w":"It thay cho 'a new phone'."}],"own":[{"src":"Q1-Đề 3 · P5 câu 25","q":"My class has got ___ best place on the campsite.","wrong":"a","right":"the"},{"src":"Q2-Đề 1 · P5 câu 27","q":"My bedroom is at ___ top.","wrong":"a","right":"the"},{"src":"Q2-Đề 1 · P5 câu 26","q":"Our new house… I really like ___.","wrong":"that","right":"it"}]},{"title":"BÀI 9 – Part 5: Liên từ & giới từ","goal":"Đọc 2 vế câu: trái ngược → but; lý do → because; kết quả → so; thời gian → when. Giới từ: học theo cụm.","remember":[["but / although = trái ngược · because = vì · so = nên · when / after / before = thời gian","Lots of people got wet, but my tent stayed dry."],["play with / against sb · live with sb · look for · wait for","I can play alone or with friends."],["by car / bus / train (không mạo từ) · at the moment · on Monday / on 5th May","We travel there by bus."],["kind of you · good at · interested in · thank you for","That's really kind of you."]],"mcq":[{"q":"I like apples ___ I don't like bananas.","o":["because","but","so"],"a":1,"w":"Trái ngược → but."},{"q":"I was hungry, ___ I made a sandwich.","o":["so","but","because"],"a":0,"w":"Kết quả → so."},{"q":"He's very good ___ maths.","o":["in","on","at"],"a":2,"w":"good at."},{"q":"Are you interested ___ music?","o":["in","on","at"],"a":0,"w":"interested in."},{"q":"Thank you ___ your help.","o":["of","for","to"],"a":1,"w":"thank you for."},{"q":"That's really kind ___ you.","o":["of","for","to"],"a":0,"w":"kind of you."}],"fill":[{"q":"I was tired, ___ I finished my homework.","a":"but","w":"Trái ngược."},{"q":"We stayed inside ___ it was raining.","a":"because / as","w":"Lý do."},{"q":"It was raining, ___ we stayed inside.","a":"so","w":"Kết quả."},{"q":"I'll call you ___ I get home.","a":"when / after","w":"Thời gian."},{"q":"I often play chess ___ my grandfather.","a":"with / against","w":"play with/against sb."},{"q":"I'm looking ___ my keys. Have you seen them?","a":"for","w":"look for = tìm."},{"q":"We went to Hue ___ train.","a":"by","w":"by + phương tiện."},{"q":"I'm very busy ___ the moment.","a":"at","w":"at the moment."},{"q":"My birthday is ___ 5th May.","a":"on","w":"on + ngày."},{"q":"Lots of people got wet, ___ my tent stayed dry.","a":"but / although","w":"Trái ngược (lỗi cũ: con viết because)."}],"own":[{"src":"Q1-Đề 3 · P5 câu 27","q":"Lots of people got wet, ___ I was lucky my new tent stayed dry.","wrong":"because","right":"but / although / however / so"},{"src":"Q2-Đề 1 · P5 câu 28","q":"Dad will build me a treehouse ___ my school holiday begins.","wrong":"on","right":"when / after / before"},{"src":"Q3-Đề 1 · P5 câu 28","q":"I can choose to play alone or ___ friends.","wrong":"two","right":"with / against"}]}],"test":{"title":"BÀI 10 – MINI TEST (làm như thi thật, 15 phút)","p4":[{"name":"A young chef","text":"Lily Tran is 14 and lives in Da Nang. She (1) ___ cooking when she was eight. Her grandmother taught her, and she (2) ___ most of her free time in the kitchen. Last year, Lily (3) ___ a national cooking competition for young people. After that, a TV company (4) ___ her a job presenting a cooking show. It (5) ___ her about three hours to film each programme. She is very busy, but she has (6) ___ to finish school before she opens her own restaurant.","items":[{"o":["began","opened","became"],"a":0,"w":"begin + V-ing."},{"o":["takes","spends","uses"],"a":1,"w":"Người + spend + thời gian."},{"o":["won","took","made"],"a":0,"w":"win a competition."},{"o":["offered","told","said"],"a":0,"w":"offer sb a job."},{"o":["spends","takes","needs"],"a":1,"w":"It takes sb + thời gian."},{"o":["thought","decided","believed"],"a":1,"w":"decide to V."}]},{"name":"The tallest trees","text":"The tallest trees in the world are redwoods. They grow in California, in the USA, and some are more than 100 metres (1) ___. Redwoods (2) ___ places near the sea, where there is a lot of fog. They can live for 2,000 years, so they are some of the oldest trees (3) ___ in the world. Today, visitors are (4) ___ to walk through the forests, but they must stay on the paths. A walk in the forest is a great (5) ___ to learn about nature. (6) ___, it is not possible to climb the trees.","items":[{"o":["tall","long","large"],"a":0,"w":"Chiều cao cây → tall."},{"o":["prefer","think","decide"],"a":0,"w":"prefer + danh từ."},{"o":["anywhere","everywhere","somewhere"],"a":0,"w":"so sánh nhất + anywhere in the world."},{"o":["agreed","allowed","liked"],"a":1,"w":"be allowed to V."},{"o":["way","plan","thing"],"a":0,"w":"a great way to V."},{"o":["Instead","However","Especially"],"a":1,"w":"However = tuy nhiên."}]}],"p5":[{"name":"From: Minh   To: Leo","text":"Hi Leo, I'm going to (1) ___ new water park on Sunday with my cousins. It's (2) ___ biggest water park in our city. We're going there (3) ___ bus. (4) ___ you want to come with us? My mum says she can drive us home (5) ___ we finish. (6) ___ you can come, please call me before Saturday.","ans":[["the","the new water park – đã xác định."],["the","the + so sánh nhất."],["by","by + phương tiện."],["Do","Câu hỏi Yes/No, động từ thường."],["when / after","Liên từ thời gian."],["If","Dấu phẩy + mệnh lệnh 'please call me'."]]},{"name":"From: Anna   To: Kate","text":"Thanks (1) ___ your email. I didn't write back sooner (2) ___ I was really busy. We had a school trip to Hoi An last week. (3) ___ took us four hours to get there. (4) ___ were lots of tourists in the old town. I bought you a present there – I hope you like (5) ___. (6) ___ are you doing this weekend?","ans":[["for","Thanks for."],["because / as","Lý do."],["It","It takes/took + thời gian."],["There","There were = có."],["it","it thay cho 'a present'."],["What","Đã có 'are you doing' → thiếu từ để hỏi."]]}]}};
+const L = DATA.lessons, T = DATA.test;
+const LET = ['A','B','C'];
+const $ = (s, r=document) => r.querySelector(s);
+const el = (t, cls, html) => { const e = document.createElement(t); if (cls) e.className = cls; if (html != null) e.innerHTML = html; return e; };
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const norm = s => String(s||'').toLowerCase().replace(/[’`]/g,"'").replace(/[^a-z' ]/g,' ').replace(/\s+/g,' ').trim();
+const accepts = a => a.split('/').map(norm).filter(Boolean);
+
+// ---- lưu tiến độ trên máy ----
+const KEY = 'bao-ket-p45-on2tuan';
+let store = {};
+try { store = JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch(e) { store = {}; }
+store.ans = store.ans || {}; store.done = store.done || {}; store.scores = store.scores || {}; store.time = store.time || {};
+function save(){ try { localStorage.setItem(KEY, JSON.stringify(store)); } catch(e) {} }
+$('#name').value = store.name || '';
+$('#name').addEventListener('input', e => { store.name = e.target.value; save(); });
+
+// ---- danh sách bài ----
+const ALL = L.map((l, i) => ({id: 'b'+(i+1), title: l.title, total: l.mcq.length + l.fill.length + l.own.length}));
+ALL.push({id:'b10', title: T.title, total: 24, isTest: true});
+
+function drawMenu(){
+  const m = $('#menu'); m.innerHTML = '';
+  ALL.forEach(b => {
+    const s = store.scores[b.id];
+    const o = el('button', 'opt' + (s != null ? ' done' : ''));
+    const parts = b.title.split(' – ');
+    o.innerHTML = `<span class="nm"><b>${esc(parts[0].replace('BÀI ',''))}</b><span>${esc(parts.slice(1).join(' – '))}</span></span><span class="st">${s != null ? s+'/'+b.total : 'Chưa làm'}</span>`;
+    o.onclick = () => open(b.id);
+    m.append(o);
+  });
+  const n = Object.keys(store.scores).length;
+  $('#progress').textContent = `Đã làm ${n}/10 bài`;
+}
+
+// ---- đồng hồ ----
+let tick = null, cur = null;
+function fmt(s){ return String(Math.floor(s/60)).padStart(2,'0') + ':' + String(s%60).padStart(2,'0'); }
+function startTimer(id, limit){
+  clearInterval(tick);
+  const t = $('#timer');
+  const draw = () => { const s = store.time[id] || 0; t.textContent = fmt(s) + (limit ? ' / ' + fmt(limit) : ''); t.classList.toggle('late', !!limit && s > limit); };
+  draw();
+  tick = setInterval(() => { if (store.done[id]) return; store.time[id] = (store.time[id] || 0) + 1; draw(); if (store.time[id] % 5 === 0) save(); }, 1000);
+}
+
+// ---- dựng câu hỏi ----
+function sentence(q, inputHtml){ return esc(q).replace('___', inputHtml); }
+function choice(id, key, opts, wrapCls, grid, onPick){
+  const box = grid || el('div', wrapCls || 'opts');
+  const btns = opts.map((o, i) => {
+    const b = el('button', 'opt', `<b>${LET[i]}</b><span>${esc(o)}</span>`); b.type = 'button'; b.dataset.v = i;
+    if (store.ans[key] === i) b.classList.add('sel');
+    b.onclick = () => { if (store.done[id]) return; store.ans[key] = i; btns.forEach(x => x.classList.toggle('sel', x === b)); save(); count(); if (onPick) onPick(i); };
+    box.append(b); return b;
+  });
+  return {box, mark: right => btns.forEach((b, i) => { b.classList.remove('sel'); if (i === right) b.classList.add('right'); else if (store.ans[key] === i) b.classList.add('wrong'); })};
+}
+function gapInput(id, key){
+  const inp = el('input', 'gapin'); inp.type = 'text'; inp.autocomplete = 'off'; inp.spellcheck = false; inp.setAttribute('autocapitalize','off');
+  inp.value = store.ans[key] || '';
+  inp.oninput = () => { store.ans[key] = inp.value; save(); count(); };
+  if (store.done[id]) inp.readOnly = true;
+  return inp;
+}
+function fb(node, ok, right, why){
+  const f = el('div', 'fb', `<span class="verdict ${ok?'ok':'no'}">${ok ? 'Đúng.' : 'Chưa đúng — đáp án: ' + esc(right) + '.'}</span> ${esc(why || '')}`);
+  node.append(f);
+}
+
+let graders = [], keys = [];
+function count(){
+  if (!cur) return;
+  const n = keys.filter(k => store.ans[k] !== undefined && String(store.ans[k]).trim() !== '').length;
+  const note = $('#lnote');
+  if (note && !store.done[cur.id]) note.innerHTML = `Đã làm <b>${n}/${keys.length}</b> câu` + (n < keys.length ? ' · <span class="warn">còn câu trống</span>' : ' · sẵn sàng chấm');
+}
+
+function open(id){
+  cur = ALL.find(b => b.id === id);
+  graders = []; keys = [];
+  $('#home').classList.add('hidden'); $('#back').classList.remove('hidden');
+  const box = $('#lesson'); box.innerHTML = '';
+  const card = el('section', 'card'); box.append(card);
+  if (cur.isTest) buildTest(card, id); else buildLesson(card, id, L[+id.slice(1) - 1]);
+  // chân bài
+  const foot = el('div', 'lfoot');
+  foot.innerHTML = `<span class="lnote" id="lnote"></span>`;
+  const gradeBtn = el('button', 'btn', 'Chấm bài'); const redo = el('button', 'btn ghost', 'Làm lại bài này');
+  gradeBtn.onclick = () => {
+    const n = keys.filter(k => store.ans[k] !== undefined && String(store.ans[k]).trim() !== '').length;
+    if (n < keys.length && !gradeBtn.dataset.warned){ gradeBtn.dataset.warned = 1; $('#lnote').innerHTML = `<span class="warn">Còn ${keys.length - n} câu chưa làm. Thi thật không được bỏ trống! Bấm Chấm bài lần nữa nếu vẫn muốn chấm.</span>`; return; }
+    store.done[id] = true; save(); open(id); window.scrollTo(0, 0);
+  };
+  redo.onclick = () => { if (!redo.dataset.sure){ redo.dataset.sure = 1; redo.textContent = 'Bấm lần nữa để xoá và làm lại'; return; } keys.forEach(k => delete store.ans[k]); delete store.done[id]; delete store.scores[id]; store.time[id] = 0; save(); open(id); window.scrollTo(0,0); };
+  foot.append(store.done[id] ? redo : gradeBtn);
+  card.append(foot);
+  if (store.done[id]) grade(card, id);
+  count();
+  startTimer(id, cur.isTest ? 15*60 : 0);
+  drawMenu();
+}
+
+function grade(card, id){
+  let score = 0;
+  graders.forEach(g => { if (g()) score++; });
+  store.scores[id] = score; save();
+  card.querySelectorAll('.q, .ptest').forEach(q => q.classList.add('done'));
+  card.querySelectorAll('input.gapin').forEach(i => i.readOnly = true);
+  const r = el('div', 'result show');
+  const pct = score / keys.length;
+  r.innerHTML = `<div class="score">${score}<small> / ${keys.length} câu đúng</small></div>
+    <div>${pct >= .9 ? 'Rất tốt! Giữ vững nhé.' : pct >= .7 ? 'Khá tốt. Xem lại các câu sai bên dưới, chép CẢ CỤM đúng vào sổ lỗi.' : 'Cần ôn thêm. Đọc lại phần Ghi nhớ, chép các cụm đúng vào sổ lỗi rồi bấm “Làm lại bài này”.'}</div>
+    <div class="sub">Thời gian: ${fmt(store.time[id] || 0)}</div>`;
+  card.insertBefore(r, card.querySelector('.memo, .sec'));
+  card.querySelectorAll('.sec').forEach(s => { const sc = s.dataset.k ? s._score() : null; if (sc) s.querySelector('.sum').textContent = sc; });
+}
+
+function buildLesson(card, id, l){
+  const [no, ...rest] = l.title.split(' – ');
+  card.innerHTML = `<div class="kicker">${esc(no)}</div><h2>${esc(rest.join(' – '))}</h2><div class="goal">${esc(l.goal)}</div>`;
+  const memo = el('div', 'memo', `<h3>📌 Ghi nhớ</h3><table>${l.remember.map(([a,b]) => `<tr><td>${esc(a)}</td><td>${esc(b)}</td></tr>`).join('')}</table>`);
+  card.append(memo);
+
+  const mkSec = (k, title, instr) => {
+    const s = el('div', 'sec', `<span class="sum"></span><h3>${title}</h3><div class="instr">${instr}</div>`); s.dataset.k = k;
+    const res = []; s._score = () => `${res.filter(Boolean).length}/${res.length}`; s._res = res;
+    card.append(s); return s;
+  };
+  const wrapG = (s, f) => { graders.push(() => { const ok = f(); s._res.push(ok); return ok; }); };
+
+  // A
+  const A = mkSec('A', 'A. Chọn đáp án đúng (kiểu Part 4)', 'Đọc cả câu, nhìn từ ngay sau chỗ trống rồi chọn A, B hoặc C.');
+  l.mcq.forEach((m, i) => {
+    const key = `${id}-A${i}`; keys.push(key);
+    const q = el('div', 'q', `<div><span class="qn">${i+1}.</span>${sentence(m.q, '<span class="blank">______</span>')}</div>`);
+    const c = choice(id, key, m.o); q.append(c.box); A.append(q);
+    wrapG(A, () => { const ok = store.ans[key] === m.a; c.mark(m.a); fb(q, ok, LET[m.a] + ' ' + m.o[m.a], m.w); return ok; });
+  });
+  // B
+  const B = mkSec('B', 'B. Điền MỘT từ (kiểu Part 5)', 'Gõ đúng MỘT từ vào ô trống.');
+  l.fill.forEach((f, i) => {
+    const key = `${id}-B${i}`; keys.push(key);
+    const q = el('div', 'q'); const line = el('div', null, `<span class="qn">${i+1}.</span>`);
+    const [pre, post] = f.q.split('___'); const inp = gapInput(id, key);
+    line.append(document.createTextNode(pre), inp, document.createTextNode(post)); q.append(line); B.append(q);
+    wrapG(B, () => { const ok = accepts(f.a).includes(norm(store.ans[key])); inp.classList.add(ok ? 'right' : 'wrong'); fb(q, ok, f.a, f.w); return ok; });
+  });
+  // C
+  const C = mkSec('C', 'C. Sửa lỗi của chính con', 'Đây là những câu con đã làm sai trong đề. Gõ đáp án ĐÚNG vào chỗ trống.');
+  l.own.forEach((o, i) => {
+    const key = `${id}-C${i}`; keys.push(key);
+    const q = el('div', 'q'); const line = el('div', null, `<span class="qn">${i+1}.</span><span class="src">${esc(o.src)}</span>`);
+    const [pre, post] = o.q.split('___'); const inp = gapInput(id, key);
+    line.append(document.createTextNode(pre), inp, document.createTextNode(post));
+    q.append(line, el('div', 'was', `Lần trước con đã chọn: <s>${esc(o.wrong)}</s>`)); C.append(q);
+    wrapG(C, () => { const ok = accepts(o.right).includes(norm(store.ans[key])); inp.classList.add(ok ? 'right' : 'wrong'); fb(q, ok, o.right, 'Chép lại cả câu đúng vào sổ lỗi.'); return ok; });
+  });
+}
+
+function passage(text, fill){
+  const div = el('div', 'passage');
+  const parts = text.split(/\((\d)\) ___/);
+  for (let i = 0; i < parts.length; i++){
+    if (i % 2 === 0) div.append(document.createTextNode(parts[i]));
+    else { div.append(el('span', 'gn', ` (${parts[i]}) `)); div.append(fill(+parts[i] - 1)); }
+  }
+  return div;
+}
+function buildTest(card, id){
+  card.innerHTML = `<div class="kicker">BÀI 10</div><h2>Mini test · làm như thi thật (15 phút)</h2><div class="goal">Áp dụng 3 bước Part 4 và quy tắc chỗ trống đầu câu Part 5. Không bỏ trống câu nào.</div>`;
+  const mk = (k, t, ins) => { const s = el('div', 'sec', `<span class="sum"></span><h3>${t}</h3><div class="instr">${ins}</div>`); s.dataset.k = k; const res = []; s._res = res; s._score = () => `${res.filter(Boolean).length}/${res.length}`; card.append(s); return s; };
+  T.p4.forEach((t, k) => {
+    const s = mk('P4'+k, `Part 4 · ${k ? 'B' : 'A'}: ${esc(t.name)}`, 'For each question, choose the correct answer.');
+    const blanks = [];
+    s.append(passage(t.text, i => { const key = `${id}-P4${k}-${i}`; const v = store.ans[key]; blanks[i] = el('span', 'blank', v != null ? esc(t.items[i].o[v]) : '______'); return blanks[i]; }));
+    const grid = el('div', 'pgrid ptest');
+    t.items.forEach((it, i) => {
+      const key = `${id}-P4${k}-${i}`; keys.push(key);
+      grid.append(el('span', 'n', String(i+1)));
+      const c = choice(id, key, it.o, null, grid, v => { blanks[i].textContent = it.o[v]; });
+      graders.push(() => { const ok = store.ans[key] === it.a; c.mark(it.a); s._res.push(ok); return ok; });
+    });
+    s.append(grid);
+    const exp = el('div', 'q ptest'); exp.append(el('div', 'fb', t.items.map((it, i) => `<div><b>${i+1}. ${esc(it.o[it.a])}</b> — ${esc(it.w)}</div>`).join('')));
+    s.append(exp);
+  });
+  T.p5.forEach((t, k) => {
+    const s = mk('P5'+k, `Part 5 · ${k ? 'D' : 'C'} (${esc(t.name)})`, 'Write ONE word for each gap.');
+    const inps = [];
+    s.append(passage(t.text, i => { const key = `${id}-P5${k}-${i}`; keys.push(key); const inp = gapInput(id, key); inps[i] = inp;
+      graders.push(() => { const ok = accepts(t.ans[i][0]).includes(norm(store.ans[key])); inp.classList.add(ok ? 'right' : 'wrong'); s._res.push(ok); return ok; });
+      return inp; }));
+    const exp = el('div', 'q ptest'); exp.append(el('div', 'fb', t.ans.map((a, i) => `<div><b>${i+1}. ${esc(a[0])}</b> — ${esc(a[1])}</div>`).join('')));
+    s.append(exp);
+  });
+}
+
+$('#back').onclick = () => { clearInterval(tick); cur = null; $('#lesson').innerHTML = ''; $('#home').classList.remove('hidden'); $('#back').classList.add('hidden'); $('#timer').textContent = '00:00'; $('#timer').classList.remove('late'); drawMenu(); window.scrollTo(0,0); };
+drawMenu();
+</script>
+</body>
+</html>
